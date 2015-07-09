@@ -1,0 +1,103 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://gae-shiro-oauth.appspot.com/_ah/api",
+  "name" : "someApi",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://gae-shiro-oauth.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "someApi.getApiWithResult" : {
+      "path" : "getApiWithResult",
+      "httpMethod" : "get",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "de.zaheraldefai.samples.appengine_shiro_oauth.SomeAPI.getApiWithResult",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "someApi.getApi" : {
+      "path" : "getApi",
+      "httpMethod" : "get",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "de.zaheraldefai.samples.appengine_shiro_oauth.SomeAPI.getApi",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "someApi.getApiWithParameter" : {
+      "path" : "getApiWithParameter",
+      "httpMethod" : "get",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "de.zaheraldefai.samples.appengine_shiro_oauth.SomeAPI.getApiWithParameter",
+      "request" : {
+        "parameters" : {
+          "someData" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "TestModelBean" : {
+        "id" : "TestModelBean",
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "de.zaheraldefai.samples.appengine_shiro_oauth.SomeAPI.getApiWithResult" : {
+        "response" : {
+          "$ref" : "TestModelBean"
+        }
+      },
+      "de.zaheraldefai.samples.appengine_shiro_oauth.SomeAPI.getApi" : {
+      },
+      "de.zaheraldefai.samples.appengine_shiro_oauth.SomeAPI.getApiWithParameter" : {
+      }
+    }
+  }
+}
